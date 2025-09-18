@@ -21,6 +21,7 @@ def reverse_last_frames(video_path, duration_difference):
     reversed_segment_path = "last_segment_reversed.mp4"
     cmd_reverse = [
         "ffmpeg", "-y",
+        "-hide_banner", "-loglevel", "error",
         "-i", last_segment_path,
         "-vf", "reverse",
         reversed_segment_path
