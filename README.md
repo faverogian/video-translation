@@ -59,7 +59,7 @@ venv\Scripts\activate      # On Windows
 pip install --upgrade pip
 
 # Install dependencies
-pip install -r requirements.txt
+pip install -r requirements.txt --no-cache-dir --no-deps
 ```
 
 ### 3. Wav2Lip Model Weights Download
