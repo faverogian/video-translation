@@ -104,6 +104,7 @@ def process_video(subtitles, translation_type, lipsync_model, padding, resize_fa
             except Exception as e:
                 print(f"Failed to remove {fpath}: {e}")
 
+    print('Done.')
     progress(1.0, desc="Done!")
 
     return output_mp4, de_audio, de_srt

@@ -175,6 +175,7 @@ def swap_audio(video_path: str, audio_path: str, translation_type: str, output_p
         # Pad audio with silence at the end
         cmd_pad = [
             "ffmpeg", "-y",
+            "-hide_banner", "-loglevel", "error",
             "-i", audio_path,
             "-af", f"apad=pad_dur={video_duration}",
             "-t", str(video_duration),  # enforce duration match

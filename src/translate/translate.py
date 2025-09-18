@@ -1,6 +1,7 @@
 import srt
 from pathlib import Path
 from typing import List
+from tqdm import tqdm
 
 from .backends.helsinki import HelsinkiTranslator
 
@@ -43,8 +44,8 @@ class TranscriptTranslator:
             subtitles = list(srt.parse(f.read()))
 
         # Translate subtitle content line by line
-        for sub in subtitles:
+        for sub in tqdm(subtitles, desc="Translating subtitles"):
             de_content = self.translator.translate(sub.content)
-            sub.content = de_content 
+            sub.content = de_content
 
         return subtitles

@@ -3,6 +3,7 @@ import srt
 import datetime
 from pydub import AudioSegment
 from TTS.api import TTS
+from tqdm import tqdm
 
 class TextToSpeech:
     """
@@ -72,7 +73,7 @@ class TextToSpeech:
         current_time_ms = 0
         new_subs = []
 
-        for i, sub in enumerate(subs):
+        for i, sub in tqdm(enumerate(subs), total=len(subs), desc="Generating audio from subtitles"):
             # Generate temporary audio file
             temp_path = f"temp_{i}.wav"
 
