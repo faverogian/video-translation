@@ -3,3 +3,15 @@
 
 # venv
 venv/
+
+# .pth
+*.pth
+
+# temp
+temp/
+
+# gradio
+.gradio/
+
+# vscode
+.vscode/

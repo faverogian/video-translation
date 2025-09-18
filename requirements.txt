@@ -8,3 +8,4 @@ ffmpeg-python
 sacremoses
 coqui-tts
 sentencepiece
+# Note: lipsync has to be manually installed after requirements.txt
