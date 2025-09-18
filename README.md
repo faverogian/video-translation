@@ -25,6 +25,12 @@ Gian Mario Favero, September 2025
 We tested this project on Python ≥ 3.11.
 It is recommended to create a fresh virtual environment before installing dependencies.
 
+### 0. Clone the Repository
+```bash
+git clone git@github.com:faverogian/video-translation.git
+cd video-translation
+```
+
 ### 1. System Requirements
 
 Before installing Python dependencies, make sure you have the following system packages:
