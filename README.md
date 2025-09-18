@@ -181,3 +181,36 @@ We envision several improvements to enhance the quality, flexibility, and effici
 - **Performance Optimizations**  
   - GPU-specific optimizations, mixed-precision inference, or batching strategies for faster processing of long videos.  
   - Potential to reduce memory footprint and processing time for high-resolution or long-form videos.  
+
+## Ethical Use (via lipsync)
+
+Please be mindful when using lipsync. This library can generate videos that look convincing, so it could be used to spread disinformation or harm someone’s reputation. We encourage using it only for entertainment or scientific purposes, and always with respect and consent from any people involved.
+
+## Citations
+
+```
+@inproceedings{10.1145/3394171.3413532,
+    author = {Prajwal, K R and Mukhopadhyay, Rudrabha and Namboodiri, Vinay P. and Jawahar, C.V.},
+    title = {A Lip Sync Expert Is All You Need for Speech to Lip Generation In the Wild},
+    year = {2020},
+    isbn = {9781450379885},
+    publisher = {Association for Computing Machinery},
+    address = {New York, NY, USA},
+    url = {https://doi.org/10.1145/3394171.3413532},
+    doi = {10.1145/3394171.3413532},
+    booktitle = {Proceedings of the 28th ACM International Conference on Multimedia},
+    pages = {484–492},
+    numpages = {9},
+    keywords = {lip sync, talking face generation, video generation},
+    location = {Seattle, WA, USA},
+    series = {MM '20}
+}
+
+@InProceedings{TiedemannThottingal:EAMT2020,
+  author = {J{\"o}rg Tiedemann and Santhosh Thottingal},
+  title = {{OPUS-MT} — {B}uilding open translation services for the {W}orld},
+  booktitle = {Proceedings of the 22nd Annual Conferenec of the European Association for Machine Translation (EAMT)},
+  year = {2020},
+  address = {Lisbon, Portugal}
+ }
+```
