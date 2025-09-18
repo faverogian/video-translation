@@ -1,8 +1,6 @@
 # English to German Video Translation
 Gian Mario Favero, September 2025
 
-## A Simple Tool for EN -> DE Translation
-
 ![App Preview](figures/app-preview.png)
 
 ## Features
@@ -22,12 +20,12 @@ Gian Mario Favero, September 2025
 
 ## Installation
 
-We tested this project on Python ≥ 3.11.
+We tested this project on Python ≥ 3.10.
 It is recommended to create a fresh virtual environment before installing dependencies.
 
 ### 0. Clone the Repository
 ```bash
-git clone git@github.com:faverogian/video-translation.git
+git clone https://github.com/faverogian/video-translation.git
 cd video-translation
 ```
 
@@ -36,7 +34,7 @@ cd video-translation
 Before installing Python dependencies, make sure you have the following system packages:
 - ffmpeg – required for audio/video processing
 - espeak-ng – required for some TTS backends
-- Python 3.11+
+- Python 3.10+
 - (Optional, but recommended) CUDA toolkit if you want GPU acceleration with PyTorch
 
 #### macOS
@@ -47,7 +45,7 @@ brew install ffmpeg espeak
 #### Ubuntu/Debian
 ```bash
 sudo apt update
-sudo apt install ffmpeg espeak-ng python3.11 python3.11-venv
+sudo apt install ffmpeg espeak-ng
 ```
 
 #### Windows
@@ -56,8 +54,8 @@ sudo apt install ffmpeg espeak-ng python3.11 python3.11-venv
 
 ### 2. Python Environment
 ```bash
-# Create and activate a virtual environment (Python 3.11+)
-python3.11 -m venv venv
+# Create and activate a virtual environment (Python 3.10+)
+python -m venv venv
 source venv/bin/activate   # On macOS/Linux
 venv\Scripts\activate      # On Windows
 
@@ -65,8 +63,10 @@ venv\Scripts\activate      # On Windows
 pip install --upgrade pip
 
 # Install dependencies
-pip install -r requirements.txt --no-cache-dir --no-deps
+pip install -r requirements.txt
+pip install lipsync
 ```
+Note that two `pip install` commands have to be run. There are soft dependency conflicts between `lipsync` and `coqui-tts` that get improperly resolved if all packages are in `requirements.txt`. After running `pip install lipsync`, there will appear to be an error -- this is expected and the code should work as usual.
 
 ### 3. Wav2Lip Model Weights Download
 This project makes use of the `moshown/lipsync` library for lip dubbing. For full use of the product, we recommend downloading both available models to have some control over generation quality.
@@ -118,8 +118,8 @@ GPU is automatically used if available, otherwise the pipeline defaults to a CPU
    - We use the [Coqui XTTS model](https://github.com/coqui-ai/TTS) to first clone the speaker’s voice from the original audio, then generate German audio line by line.  
    - **Synchronization challenges:** TTS can hallucinate (extra words) or produce slower-than-expected speech.  
    - **Correction pipeline:**  
-     - We align TTS output timings with the original subtitle timestamps.  
-     - If misaligned, we progressively speed up the TTS segment.  
+     - We compare TTS output timings with the original subtitle timestamps. Usually, this output is too slow by a little (slow pace of speech) or by a lot (hallucinations).
+     - If misaligned, we re-generate the segment, but progressively sped up.  
      - We allow up to 15 retries, keeping the best-aligned sample.  
      - This corrects both hallucinations and slow cadence, ensuring synchronized speech.  
 
