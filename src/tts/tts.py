@@ -109,7 +109,7 @@ class TextToSpeech:
                 speech_attempts.append(speech)
 
                 if tries > 15:
-                    print(f"Warning: Could not generate suitable audio for subtitle {i+1} after 10 attempts.")
+                    print(f"Warning: Could not generate suitable audio for subtitle {i+1} after 15 attempts.")
                     break
 
             speech = min(speech_attempts, key=len)
