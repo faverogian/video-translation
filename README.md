@@ -60,8 +60,8 @@ source venv/bin/activate   # On macOS/Linux
 venv\Scripts\activate      # On Windows
 
 # Install dependencies
-pip install -r requirements.txt
-pip install lipsync
+pip install -r requirements.txt # --no-cache-dir can ensure fresh installation
+pip install lipsync # --no-cache-dir can ensure fresh installation
 ```
 Note that two `pip install` commands have to be run. There are soft dependency conflicts between `lipsync` and `coqui-tts` that get improperly resolved if all packages are in `requirements.txt`. After running `pip install lipsync`, there will appear to be an error -- this is expected and the code should work as usual.
 
@@ -87,13 +87,20 @@ By default, Gradio will launch a local server and provide you with a link such a
 ```
 Running on local URL:  http://127.0.0.1:7860
 ```
-Additionally, there should be a public URL provided. If using a remote/ssh connection, this public URL works without port forwarding.
+Additionally, there should be a public URL provided. If using a remote/ssh connection, this public URL works without port forwarding. Sometimes the public URL fails to create -- by re-running this should be resolved.
 
 ### 2. Open in Browser
 
 Copy and paste the link into your browser to interact with the app. If using a local machine or port forwarding, use the local URL. Otherwise, use the public URL.
 
 ### 3. Interact with the App (See Features)
+
+Upon running for the first time, several models in the pipeline will have their weights automatically downloaded. You need to accept the terms of Coqui-TTS license agreement in the terminal by entering 'y':
+```bash
+> You must confirm the following:
+ | > "I have purchased a commercial license from Coqui: licensing@coqui.ai"
+ | > "Otherwise, I agree to the terms of the non-commercial CPML: https://coqui.ai/cpml" - [y/n]
+ ```
 
 Processing speed depends on video resolution, length, and machine hardware. For example, full lip synchronization with Wav2Lip on a 1 minute long, 1920×1080 video takes ~5 minutes on a single NVIDIA V100 (16GB). Lower-end GPUs or CPUs will take longer.  
 
