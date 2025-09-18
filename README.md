@@ -99,6 +99,8 @@ Processing speed depends on video resolution, length, and machine hardware. For 
 
 ## Pipeline Overview
 
+![Pipeline View](figures/pipeline.png)
+
 Our tool converts an English video into a German-dubbed or lip-synced version while preserving timing, naturalness, and original quality. 
 
 GPU is automatically used if available, otherwise the pipeline defaults to a CPU implementation.
