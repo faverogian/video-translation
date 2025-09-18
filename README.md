@@ -59,9 +59,6 @@ python -m venv venv
 source venv/bin/activate   # On macOS/Linux
 venv\Scripts\activate      # On Windows
 
-# Upgrade pip
-pip install --upgrade pip
-
 # Install dependencies
 pip install -r requirements.txt
 pip install lipsync
@@ -154,7 +151,6 @@ While the tool produces usable German-dubbed and lip-synced videos, there are se
   Lip-sync is powered by the open-source **Wav2Lip** framework. While effective, it is far from perfect:  
   - Lip movements may appear slightly exaggerated, rigid, or unnatural. There is much room for improvement with more advanced or modern lip-sync models. 
 
-
 - **Performance & Hardware Constraints**  
   Processing speed depends heavily on GPU power. For example, full lip synchronization with Wav2Lip on a **1920×1080 video** takes ~5 minutes on a single **NVIDIA V100 (16GB)**. Lower-end GPUs or CPUs will take longer.   
 
@@ -167,7 +163,7 @@ We envision several improvements to enhance the quality, flexibility, and effici
 
 - **Advanced & Optimized Models**  
   Each stage of the pipeline (translation, TTS, lip-sync) can benefit from more powerful and efficient models.  
-  - For example: using large multilingual Transformers for translation, state-of-the-art TTS models for natural prosody, or optimized neural lip-sync models for faster and more accurate mouth movements.  
+  - For example: using LLMs for word-efficient translation (Mistral, LLaMA, Qwen, Gemini), alternative TTS models for natural prosody (Kokoro), or modern lip-sync models for faster and more accurate mouth movements (LatentSync, MuseTalk, Halo).  
   - Performing a full **ablation study** would help understand the contribution of each component and identify bottlenecks or quality limitations.  
 
 - **Voice Separation for Complex Audio**  
